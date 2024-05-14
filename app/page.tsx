@@ -7,7 +7,7 @@ export default function Home() {
       <h1 className="text-white font-bold text-center text-4xl">
         This is First Nextjs App
       </h1>
-      <p className="text-center text-blue-300 font-bold mt-6">This app crafted using Typescript,TailwindCss</p>
+      <p className="text-center text-blue-100 font-bold mt-6">This app crafted using Typescript,TailwindCss</p>
     </Card>
     </div>
   );
