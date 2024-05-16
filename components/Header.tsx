@@ -1,5 +1,6 @@
 import React from 'react'
 import Container from './Container'
+import Link from 'next/link'
 
 function Header() {
   return (
@@ -7,10 +8,11 @@ function Header() {
         <Container>
             <div className="flex items-center justify-between">
             <div className="logo">
-                <h1 className='font-bold text-3xl'><a href="/">TO DO LIST</a></h1>
+                <h1 className='font-bold text-3xl'><Link href="/">TODO LIST</Link></h1>
             </div>
             <nav className='font-bold list-none flex gap-4'>
-                <li><a href="">Add ToDo</a></li>
+                <li><Link href="/todos">Todos</Link></li>
+                <li><Link href="/add-new">Add ToDo</Link></li>
             </nav>
             </div>
         </Container>
