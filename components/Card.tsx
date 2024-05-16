@@ -1,9 +1,22 @@
 import { ScriptProps } from 'next/script'
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-function Card({children}:ScriptProps) {
+export interface CardProps{
+children:ReactNode,
+bg?:string,
+width?:string,
+height?:string,
+padding?:string
+}
+
+function Card({children,bg,width,height,padding}:CardProps) {
   return (
-    <div className="bg-gray-500 w-3/6 rounded p-3">
+    <div 
+      className={`${bg||'bg-slate-800'} 
+                  ${width}
+                  ${height}
+                   rounded 
+                  ${padding||'p-3'}`}>
         {children}
     </div>
   )
