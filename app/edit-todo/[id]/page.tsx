@@ -11,12 +11,11 @@ function EditTask({params}:{params:Params}) {
     const app=useAppContext()
     const [task, setTask] = useState<ToDoType>({title:'',done:false,description:''})
     const taskId=params.id;
-    debugger
     useEffect(() => {
       const _task=app.todos.find(f=>f.id===parseInt(taskId));
       if(_task)
       setTask(_task)
-    }, [taskId])
+    },[taskId,app.todos])
 
     const editTodo=()=>{
       const _task=app.todos.find(f=>f.id===parseInt(taskId));
