@@ -4,10 +4,14 @@ import { ToDoType } from '@/components/Todo'
 import { appContextType, useAppContext } from '@/context/appContext'
 import React,{useState,useEffect} from 'react'
 
-function EditTask({params}) {
+interface Params{
+  id:string
+}
+function EditTask({params}:{params:Params}) {
     const app=useAppContext()
     const [task, setTask] = useState<ToDoType>({title:'',done:false,description:''})
     const taskId=params.id;
+    debugger
     useEffect(() => {
       const _task=app.todos.find(f=>f.id===parseInt(taskId));
       if(_task)
@@ -16,11 +20,12 @@ function EditTask({params}) {
 
     const editTodo=()=>{
       const _task=app.todos.find(f=>f.id===parseInt(taskId));
-      _task.title=task.title
+      if(_task)
+      {
+        _task.title=task.title
       _task.description=task.description
-      // app.setAppState((d:appContextType)=>({...d,todos:[...d.todos,task]}))
       alert("Todo Edeted successfully!")
-      // setTask({title:'',done:false,description:''})
+      }
     }
     
     return (
