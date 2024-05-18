@@ -9,7 +9,7 @@ function AddNewTask() {
   const [task, setTask] = useState<ToDoType>({title:'',done:false,description:''})
   const createTodo=()=>{
     const len=app.todos.length
-    task.id=len>0?app.todos[len-1].id+1:1;
+    task.id=app.todos[len - 1]?.id ?? 0 + 1;
     app.setAppState((d:appContextType)=>({...d,todos:[...d.todos,task]}))
     alert("Todo added successfully!")
     setTask({title:'',done:false,description:''})
