@@ -3,6 +3,7 @@ import Card from '@/components/Card'
 import { ToDoType } from '@/components/Todo'
 import { appContextType, useAppContext } from '@/context/appContext'
 import React,{useState,useEffect} from 'react'
+import {Edit} from 'lucide-react'
 
 interface Params{
   id:string
@@ -31,7 +32,7 @@ function EditTask({params}:{params:Params}) {
       <div className="flex justify-center mt-12">
         <Card bg='bg-blue-200 shadow-xl shadow-blue-300/80' >
           <h1 className="text-slate-900 font-bold  text-4xl mb-2 ">
-            📝 Edit Current Task
+            <Edit className='inline' size={60}/> Edit Current Task
           </h1>
           <input value={task.title} onChange={(e)=>setTask({...task,title:e.target.value})} type="text" className='rounded px-1 py-1 text-blue-950 font-bold w-full' placeholder='Edit Title Todo' />
           <textarea value={task.description} onChange={(e)=>setTask({...task,description:e.target.value})} rows={8} placeholder='Edit the description' className=' rounded mt-3 px-1 text-blue-950 font-bold w-full'></textarea>
