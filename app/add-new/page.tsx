@@ -3,13 +3,13 @@ import Card from '@/components/Card'
 import { ToDoType } from '@/components/Todo'
 import { appContextType, useAppContext } from '@/context/appContext'
 import { useState,useEffect } from 'react'
-
+import {PlusSquare} from 'lucide-react'
 function AddNewTask() {
   const app=useAppContext()
   const [task, setTask] = useState<ToDoType>({title:'',done:false,description:''})
   const createTodo=()=>{
     const len=app.todos.length
-    task.id=app.todos[len - 1]?.id ?? 0 + 1;
+    task.id=1 + (app.todos[len - 1]?.id ?? 0)
     app.setAppState((d:appContextType)=>({...d,todos:[...d.todos,task]}))
     alert("Todo added successfully!")
     setTask({title:'',done:false,description:''})
@@ -19,7 +19,7 @@ function AddNewTask() {
     <div className="flex justify-center mt-12">
       <Card bg='bg-blue-200 shadow-xl shadow-blue-300/80' >
         <h1 className="text-white font-bold  text-4xl mb-2 hero__title">
-          ➕Add New To Do
+          <PlusSquare className='inline' size={60}/> New To Do
         </h1>
         <input value={task.title} onChange={(e)=>setTask({...task,title:e.target.value})} type="text" className='rounded px-1 py-1 text-blue-950 font-bold w-full' placeholder='Enter new Todo' />
         <textarea value={task.description} onChange={(e)=>setTask({...task,description:e.target.value})} rows={8} placeholder='Enter here a description' className=' rounded mt-3 px-1 text-blue-950 font-bold w-full'></textarea>
