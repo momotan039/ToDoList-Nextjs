@@ -7,6 +7,7 @@ This is a simple Todo List application built with Next.js 14, TypeScript, and Ta
 - [Next.js 14](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide React](https://lucide.dev/)
 
 
 ## Usage
