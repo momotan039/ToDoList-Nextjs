@@ -1,17 +1,36 @@
 import React from 'react'
-import Todo from './Todo'
+import Todo, { ToDoType } from './Todo'
 
-export interface TodoType{
-    title:string,
-    description:string
-}
-function Todos({todos}:{todos:Array<TodoType>}) {
+
+function Todos({ todos }: { todos: Array<ToDoType> }) {
+  const doneTasks = todos.filter(f => f.done)
+  const inProgoresTasks = todos.filter(f => !f.done)
   return (
-    <div className="bg-gray-800 flex flex-wrap">
-    {todos.map((t,i)=>{
-        return <Todo key={i} title={t.title} description={t.description}/>
-    })}
-  </div>
+    <>
+      {
+        inProgoresTasks.length>0? <>
+          <h1 className='divide-red-50 text-white font-bold text-2xl divide-y-2 divide-white'>In Progress Tasks </h1>
+          <div className="bg-gray-800 flex flex-wrap">
+            {todos.filter(f=>!f.done).map((t, i) => {
+              return <Todo key={t.id} task={t} />
+            })}
+          </div>
+        </>
+          :null
+      }
+
+      {
+        doneTasks.length >0? <>
+          <h1 className='divide-red-50 text-white font-bold text-2xl'>Done Tasks </h1>
+          <div className="bg-gray-800 flex flex-wrap">
+            {todos.filter(f => f.done).map((t, i) => {
+              return <Todo key={t.id} task={t} />
+            })}
+          </div>
+        </>
+        :null
+      }
+    </>
   )
 }
 
