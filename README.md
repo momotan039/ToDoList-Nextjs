@@ -15,5 +15,6 @@ The Todo List app allows you to:
 
 - View a list of todos.
 - Add new todos.
+- Edit certain todos
 - Mark todos as completed.
 - Delete todos.
